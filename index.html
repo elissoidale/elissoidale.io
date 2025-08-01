@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Elissa Ciolli] Portfolio</title>
+    <title>Elissa Ciolli Portfolio</title>
     <style>
         :root {
             --text-color: #3e3e3e;
@@ -61,7 +61,7 @@
             right: 2rem;
             transform: translateY(-50%);
             z-index: 1000;
-            background-color: transparent; /* The requested transparent background */
+            background-color: transparent;
             text-align: right;
         }
 
@@ -72,6 +72,10 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+        }
+
+        .nav-list li {
+            position: relative; /* This is key for the dropdown positioning */
         }
 
         .nav-link {
@@ -85,6 +89,23 @@
 
         .nav-link:hover {
             color: var(--accent-color);
+        }
+
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-menu {
+            display: none; /* Hide by default */
+            position: absolute;
+            top: 0;
+            right: 100%; /* Position to the left of the parent item */
+            padding-right: 1.5rem; /* Space between main link and dropdown */
+            list-style: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            white-space: nowrap;
+        }
+        
+        .nav-list li:hover .dropdown-menu {
+            display: flex; /* Show on hover */
         }
 
         /* --- Main Content Layout --- */
@@ -177,7 +198,7 @@
     <div class="background-image"></div>
 
     <header class="header">
-        [Your Name]
+        Elissa Ciolli
     </header>
 
     <div class="right-menu">
@@ -186,23 +207,26 @@
                 <li><a href="/about.html" class="nav-link">About Me</a></li>
                 <li><a href="/contacts.html" class="nav-link">Contacts</a></li>
                 <li><a href="/shortfilms.html" class="nav-link">Short Films</a></li>
-                <li><a href="/photo.html" class="nav-link">Photo</a></li>
-                <li><a href="/photo.html?category=portraits" class="nav-link">Portraits</a></li>
-                <li><a href="/photo.html?category=nature" class="nav-link">Nature</a></li>
+                <li>
+                    <a href="/photo.html" class="nav-link">Photo</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/photo.html?category=portraits" class="nav-link">Portraits</a></li>
+                        <li><a href="/photo.html?category=nature" class="nav-link">Nature</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
 
     <main class="page-content">
         <section class="hero-section">
-            <h1>[Your Name]</h1>
-            <p>I'm a student at ROMA3 university based in Italy, and I go story hunting with my camera.
-You can find me in the unnoticed details, up in the trees chasing new perspectives, or underwater exploring hidden worlds.
-That’s where I feel most alive.
-And you?
-Would you like to share your story with me? Write me!
-
-.</p>
+            <h1>Elissa Ciolli</h1>
+            <p>I'm a student at ROMA3 university based in Italy, and I go story hunting with my camera. <br>
+            You can find me in the unnoticed details, up in the trees chasing new perspectives, or underwater exploring hidden worlds. <br>
+            That’s where I feel most alive. <br>
+            And you? <br>
+            Would you like to share your story with me? Write me!
+            </p>
         </section>
 
         <section class="grid-section">
@@ -221,8 +245,7 @@ Would you like to share your story with me? Write me!
                             <h2>Nature</h2>
                         </a>
                     </div>
-                    
-                    </div>
+                </div>
             </div>
         </section>
     </main>
