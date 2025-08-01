@@ -9,11 +9,52 @@ title: Home
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    /* Static background image */
+    background-image: url('your-background-image.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
+  .menu {
+    width: 100%;
+    padding: 1.5rem 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for readability */
+  }
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .menu li {
+    margin: 0 2rem;
+  }
+  .menu a {
+    text-decoration: none;
+    color: #2e8b57; /* Green wood color */
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  .menu a:hover {
+    color: #1a5c37;
+  }
+  .main-content-wrapper {
+    display: flex;
+    justify-content: center;
     padding: 2rem 1rem;
+  }
+  .main-content {
+    max-width: 960px;
+    background-color: #ffffff; /* White background for the main frame */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enables scrolling for the main body */
+    height: 80vh; /* Sets a fixed height to make it scrollable */
   }
   .hero {
     text-align: center;
@@ -48,32 +89,7 @@ title: Home
     font-size: 1.5rem;
     margin-top: 1rem;
     text-align: center;
-    color: #2e8b57; /* A deep, earthy green */
-  }
-  .menu {
-    text-align: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e0e0e0;
-    background-color: #ffffff;
-  }
-  .menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-  .menu li {
-    margin: 0 1rem;
-  }
-  .menu a {
-    text-decoration: none;
-    color: #2e8b57; /* Green wood */
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  .menu a:hover {
-    color: #1a5c37;
+    color: #2e8b57;
   }
 </style>
 
@@ -86,25 +102,27 @@ title: Home
   </ul>
 </div>
 
-<div class="container">
-  <div class="hero">
-    <h1>[Your Name] Portfolio</h1>
-    <p>A brief and welcoming presentation message.</p>
-  </div>
-  
-  <div class="grid">
-    <div class="grid-item">
-      <a href="/photo.html?category=portraits">
-        <img src="your-portrait-photo.jpg" alt="Portraits Section">
-        <h2>Portraits</h2>
-      </a>
+<div class="main-content-wrapper">
+  <div class="main-content">
+    <div class="hero">
+      <h1>[Your Name] Portfolio</h1>
+      <p>A brief and welcoming presentation message.</p>
     </div>
     
-    <div class="grid-item">
-      <a href="/photo.html?category=nature">
-        <img src="your-nature-photo.jpg" alt="Nature Section">
-        <h2>Nature</h2>
-      </a>
+    <div class="grid">
+      <div class="grid-item">
+        <a href="/photo.html?category=portraits">
+          <img src="your-portrait-photo.jpg" alt="Portraits Section">
+          <h2>Portraits</h2>
+        </a>
+      </div>
+      
+      <div class="grid-item">
+        <a href="/photo.html?category=nature">
+          <img src="your-nature-photo.jpg" alt="Nature Section">
+          <h2>Nature</h2>
+        </a>
+      </div>
     </div>
   </div>
 </div>
