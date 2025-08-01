@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elissa Ciolli Portfolio</title>
     <style>
         :root {
-            --text-color: #324A26;
+            --text-color: #3e3e3e;
             --background-color: #f7f7f7;
             --white-color: #ffffff;
             --accent-color: #2e8b57;
@@ -39,51 +40,105 @@
             z-index: -1;
         }
 
-        /* --- Header & Navigation --- */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between; /* Aligns items to the left and right */
-            align-items: center;
-            padding: 2rem 5rem; /* Increased padding to separate from the edge */
-            z-index: 1000;
-            color: var(--white-color);
-            font-size: 1.5rem;
-            font-weight: 300;
-            text-shadow: 1px 1px 2px var(--shadow-dark);
-            transition: color 0.5s ease, text-shadow 0.5s ease;
-        }
-        
-        .header-name {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--white-color);
-            text-shadow: 1px 1px 2px var(--shadow-dark);
-        }
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: var(--white-color);
+    font-weight: 300;
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
 
-        .header-contacts {
-            display: flex;
-            gap: 2rem;
-        }
+.header-content-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .header-contacts a {
-            color: var(--white-color);
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        
-        .header-contacts a:hover {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
+.header-name {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--white-color);
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+    white-space: nowrap;
+}
 
-        .contact-icon {
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 2px var(--shadow-dark);
-        }
+.header-contacts {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.header-contacts a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.header-contacts a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.contact-icon {
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+}
+
+.contact-icon {
+    font-size: 1rem; /* Slightly smaller font size */
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.header {
+    overflow-x: hidden; /* Previene overflow orizzontale */
+}
+
+.header-content-container {
+    flex-wrap: wrap; /* Permette al contenuto di andare a capo */
+    gap: 1rem;
+}
+
+/* Rendilo responsive */
+@media (max-width: 768px) {
+    .header-content-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .header-contacts {
+        justify-content: flex-start;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        padding-right: 1.5rem; /* This adds space inside the container */
+    }
+
+    .header-name {
+        font-size: 1.25rem;
+    }
+
+    .header-contacts a {
+        font-size: 0.9rem;
+    }
+}
+
 
         .right-menu {
             position: fixed;
@@ -237,14 +292,19 @@
 
     <div class="background-image"></div>
 
-    <header class="header">
+<header class="header">
+    <div class="header-content-container">
         <span class="header-name">Elissa Ciolli</span>
         <div class="header-contacts">
-            <a href="mailto:elissaciolli@email.com" class="contact-icon">Mail</a>
-            <a href="tel:+391234567890" class="contact-icon">Phone</a>
-            <a href="https://www.instagram.com/elissaciolli" class="contact-icon" target="_blank">IG</a>
+            <a href="mailto:elissa.ciolli@gmail.com">
+                <i class="fas fa-envelope"></i> elissa.ciolli@gmail.com
+            </a>
+            <a href="https://www.instagram.com/elissoidale" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <div id="right-menu" class="right-menu">
         <nav>
