@@ -1,130 +1,225 @@
----
-layout: default
-title: Home
----
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #3e3e3e;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    /* Static background image */
-    background-image: url('background.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .menu {
-    width: 100%;
-    padding: 1.5rem 0;
-    text-align: center;
-    background-color: transparent; 
-  }
-  .menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-  .menu li {
-    margin: 0 2rem;
-  }
-  .menu a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  }
-  .menu a:hover {
-    color: #cccccc;
-  }
-  .main-content-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem;
-    flex-direction: column; /* To stack hero and content vertically */
-    align-items: center;
-  }
-  .hero {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #ffffff; /* White text for readability against the background */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  }
-  .hero h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
-  }
-  .hero p {
-    font-size: 1.2rem;
-    color: #e0e0e0;
-  }
-  .scrollable-frame {
-    max-width: 75vw; /* Sets the width to 75% of the viewport */
-    height: 60vh; /* Sets a fixed height to make it scrollable */
-    background-color: transparent; /* No background for the scrollable frame itself */
-    overflow-y: auto; /* Enables scrolling for the main body */
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 1rem;
-  }
-  .grid-item {
-    background-color: #ffffff; /* White background for the photo frame */
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .grid-item a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .grid-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .grid-item h2 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    text-align: center;
-    color: #2e8b57;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] Portfolio</title>
+    <style>
+        :root {
+            --text-color: #3e3e3e;
+            --background-color: #f7f7f7;
+            --white-color: #ffffff;
+            --accent-color: #2e8b57;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-<div class="menu">
-  <ul>
-    <li><a href="/about.html">About Me</a></li>
-    <li><a href="/contacts.html">Contacts</a></li>
-    <li><a href="/shortfilms.html">Short Films</a></li>
-    <li><a href="/photo.html">Photo</a></li>
-  </ul>
-</div>
+        /* --- Global & Body Styles --- */
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
+        }
 
-<div class="main-content-wrapper">
-  <div class="hero">
-    <h1>[Your Name] Portfolio</h1>
-    <p>A brief and welcoming presentation message.</p>
-  </div>
-  
-  <div class="scrollable-frame">
-    <div class="grid">
-      <div class="grid-item">
-        <a href="/photo.html?category=portraits">
-          <img src="portrait.jpeg" alt="Portraits Section">
-          <h2>Portraits</h2>
-        </a>
-      </div>
-      
-      <div class="grid-item">
-        <a href="/photo.html?category=nature">
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            z-index: 1000;
+            color: var(--white-color);
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px var(--shadow-dark);
+        }
+
+        .right-menu {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background-color: transparent; /* The requested transparent background */
+            text-align: right;
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--white-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            text-shadow: 1px 1px 2px var(--shadow-dark);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Main Content Layout --- */
+        .page-content {
+            padding-top: 10rem;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            color: var(--white-color);
+            text-shadow: 1px 1px 4px var(--shadow-dark);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin: 1rem 0 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid-section {
+            background-color: var(--white-color);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            min-height: 60vh;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fcfcfc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-dark);
+        }
+
+        .grid-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            padding: 1.5rem;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item h2 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-image"></div>
+
+    <header class="header">
+        [Your Name]
+    </header>
+
+    <div class="right-menu">
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/about.html" class="nav-link">About Me</a></li>
+                <li><a href="/contacts.html" class="nav-link">Contacts</a></li>
+                <li><a href="/shortfilms.html" class="nav-link">Short Films</a></li>
+                <li><a href="/photo.html" class="nav-link">Photo</a></li>
+                <li><a href="/photo.html?category=portraits" class="nav-link">Portraits</a></li>
+                <li><a href="/photo.html?category=nature" class="nav-link">Nature</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="page-content">
+        <section class="hero-section">
+            <h1>[Your Name]</h1>
+            <p>A brief and welcoming presentation message.</p>
+        </section>
+
+        <section class="grid-section">
+            <div class="container">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <a href="/photo.html?category=portraits">
+                            <img src="portrait.jpeg" alt="Portraits Section">
+                            <h2>Portraits</h2>
+                        </a>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <a href="/photo.html?category=nature">
+                            <img src="nature.jpeg" alt="Nature Section">
+                            <h2>Nature</h2>
+                        </a>
+                    </div>
+                    
+                    </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
