@@ -13,6 +13,7 @@
             --shadow-light: rgba(0, 0, 0, 0.1);
             --shadow-dark: rgba(0, 0, 0, 0.2);
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --serif-font: Georgia, "Times New Roman", Times, serif;
         }
 
         /* --- Global & Body Styles --- */
@@ -53,6 +54,7 @@
             font-size: 1.5rem;
             font-weight: 300;
             text-shadow: 1px 1px 2px var(--shadow-dark);
+            transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth color transition */
         }
 
         .right-menu {
@@ -75,7 +77,7 @@
         }
 
         .nav-list li {
-            position: relative; /* This is key for the dropdown positioning */
+            position: relative;
         }
 
         .nav-link {
@@ -86,18 +88,23 @@
             transition: color 0.3s ease;
             text-shadow: 1px 1px 2px var(--shadow-dark);
         }
-
+        
         .nav-link:hover {
             color: var(--accent-color);
         }
 
-        /* --- Dropdown Menu Styles --- */
+        /* Styles for when the menu is scrolled over the white section */
+        .right-menu.scrolled .nav-link {
+            color: var(--accent-color);
+            text-shadow: none;
+        }
+
         .dropdown-menu {
-            display: none; /* Hide by default */
+            display: none;
             position: absolute;
             top: 0;
-            right: 100%; /* Position to the left of the parent item */
-            padding-right: 1.5rem; /* Space between main link and dropdown */
+            right: 100%;
+            padding-right: 1.5rem;
             list-style: none;
             flex-direction: column;
             gap: 1.5rem;
@@ -105,7 +112,7 @@
         }
         
         .nav-list li:hover .dropdown-menu {
-            display: flex; /* Show on hover */
+            display: flex;
         }
 
         /* --- Main Content Layout --- */
@@ -131,8 +138,11 @@
         }
 
         .hero-section p {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Adjusted font size */
+            font-family: var(--serif-font); /* Changed to serif font */
+            font-weight: normal;
             margin: 1rem 0 0;
+            max-width: 600px;
         }
 
         .container {
@@ -148,7 +158,7 @@
             box-shadow: 0 5px 20px var(--shadow-light);
             min-height: 60vh;
         }
-
+        
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -201,7 +211,7 @@
         Elissa Ciolli
     </header>
 
-    <div class="right-menu">
+    <div id="right-menu" class="right-menu">
         <nav>
             <ul class="nav-list">
                 <li><a href="/about.html" class="nav-link">About Me</a></li>
@@ -221,15 +231,16 @@
     <main class="page-content">
         <section class="hero-section">
             <h1>Elissa Ciolli</h1>
-            <p>I'm a student at ROMA3 university based in Italy, and I go story hunting with my camera. <br>
-            You can find me in the unnoticed details, up in the trees chasing new perspectives, or underwater exploring hidden worlds. <br>
-            That’s where I feel most alive. <br>
-            And you? <br>
-            Would you like to share your story with me? Write me!
+            <p>
+                I'm a student at ROMA3 university based in Italy, and I go story hunting with my camera.<br>
+                You can find me in the unnoticed details, up in the trees chasing new perspectives, or underwater exploring hidden worlds.<br>
+                That’s where I feel most alive.<br>
+                And you?<br>
+                Would you like to share your story with me? Write me!
             </p>
         </section>
 
-        <section class="grid-section">
+        <section id="grid-section" class="grid-section">
             <div class="container">
                 <div class="grid-container">
                     <div class="grid-item">
@@ -249,6 +260,24 @@
             </div>
         </section>
     </main>
+
+    <script>
+        // Get the elements
+        const rightMenu = document.getElementById('right-menu');
+        const gridSection = document.getElementById('grid-section');
+
+        // Add a scroll event listener
+        window.addEventListener('scroll', () => {
+            const gridSectionTop = gridSection.getBoundingClientRect().top;
+
+            // Check if the grid section is in the viewport (or slightly before)
+            if (gridSectionTop <= window.innerHeight - 50) {
+                rightMenu.classList.add('scrolled');
+            } else {
+                rightMenu.classList.remove('scrolled');
+            }
+        });
+    </script>
 
 </body>
 </html>
